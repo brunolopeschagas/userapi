@@ -1,6 +1,6 @@
 package br.com.brunochagas.userapi.userapi;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -22,5 +22,10 @@ public class UserDTO {
     @NotBlank(message = "E-Mail é obrigatório")
     private String email;
     private String telefone;
-    private LocalDate dadaCadastro;
+    private LocalDateTime dadaCadastro;
+
+    public static UserDTO convert(User user){
+        UserDTO userDTO = new UserDTO(user.getNome(), user.getCpf(), user.getEndereco(), user.getEmail(), user.getTelefone(), user.getDataCadastro());
+        return userDTO;
+    }
 }
