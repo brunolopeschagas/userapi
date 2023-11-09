@@ -41,4 +41,15 @@ public class User {
         User user = new User(userDTO.getNome(), userDTO.getCpf(), userDTO.getEndereço(), userDTO.getEmail(), userDTO.getTelefone(), userDTO.getDadaCadastro());
         return user;
     }
+
+    public static User convert(UserDTO userDTO){
+        User user = new User();
+        user.setNome(userDTO.getNome());
+        user.setEndereco(userDTO.getEndereço());
+        user.setCpf(userDTO.getCpf());
+        user.setEmail(userDTO.getEmail());
+        user.setTelefone(userDTO.getTelefone());
+        user.setDataCadastro(userDTO.getDadaCadastro());
+        return user;
+    }
 }
